@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sqlite-mcp-server"
+version = "0.1.0"
+description = "A Model Context Protocol server for SQLite database operations"
+authors = [
+    { name = "SQLite MCP Server", email = "noreply@example.com" }
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "sqlite3"
+]
+requires-python = ">=3.8"
+
+[project.scripts]
+sqlite-mcp-server = "sqlite_mcp_server.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sqlite_mcp_server"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/README.md",
+    "/pyproject.toml"
+]
